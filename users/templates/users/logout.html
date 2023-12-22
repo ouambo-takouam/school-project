@@ -1,0 +1,8 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+<div class="form-wrapper">
+    <h2>Vous avez été déconnecté.</h2>
+    <a href="{% url 'login' %}">Se Reconnecter</a>
+</div>
+{% endblock content %}

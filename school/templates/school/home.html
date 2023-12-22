@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p><b>{{user.school.name}}</b> | {{user}}</p>
+
+<!-- liste de classes -->
+{% if classes %}
+<i>Classes</i>
+<ul>
+    {% for class in classes %}
+    <li>
+        {{class}} | 
+        <a href={% url 'school:update_classe' class.id %}>
+            <i>Modifier</i>
+        </a> | 
+        <a href={% url 'school:delete_classe' class.id %}>
+            <i>Supprimer</i>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<!-- liste de matieres -->
+{% if matieres %}
+<i>Matieres</i>
+<ol>
+    {% for matiere in matieres %}
+    <li>
+        {{matiere}} | 
+        <a href={% url 'school:update_matiere' matiere.id %}>
+            <i>Modifier</i>
+        </a> | 
+        <a href={% url 'school:delete_matiere' matiere.id %}>
+            <i>Supprimer</i>
+        </a>
+    </li>
+    {% endfor %}
+</ol>
+{% endif %}
+
+<!-- liste des eleves -->
+{% if students %}
+<i>Eleves</i>
+<ol>
+    {% for student in students %}
+    <li>
+        {{student}} | 
+        <a href={% url 'school:update_student' student.id %}>
+            <i>Modifier</i>
+        </a> | 
+        <a href={% url 'school:delete_student' student.id %}>
+            <i>Supprimer</i>
+        </a>
+    </li>
+    {% endfor %}
+</ol>
+{% endif %}
+
+<div>
+    <a href="{% url 'school:create_classe' %}">Ajouter une classe</a><br>
+    <a href="{% url 'school:create_matiere' %}">Ajouter une matiere</a><br>
+    <a href="{% url 'school:create_student' %}">Ajouter un eleve</a><br>
+    <a href="{% url 'users:create_user_profile' %}">Ajouter un utilisateur</a><br>
+
+</div>
+
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Se deconnecter">
+</form>
+{% endblock %}

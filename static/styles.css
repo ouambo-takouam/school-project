@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --clr-white: #ffffff;
+  --clr-grey-5: #fcfafa;
+  --clr-grey-10: #f1f1f1;
+  --clr-grey-25: #dcdcdc;
+  --clr-grey-50: #c4c4c4;
+  --clr-grey-100: #a7a7a7;
+  --clr-grey-200: #8a8a8a;
+  --clr-grey-300: #6c6c6c;
+  --clr-grey-400: #4f4f4f;
+  --clr-grey-500: #424242;
+  --clr-grey-600: #353535;
+  --clr-grey-700: #282828;
+  --clr-grey-800: #1a1a1a;
+  --clr-grey-900: #101010;
+
+  --font-family-default: "Inter", sans-serif;
+  --font-family-kumbh: "Kumbh Sans", sans-serif;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+  --fw-extra-bold: 800;
+  --fw-black: 900;
+
+  --fs-400: 1.125rem;
+  /* --fs-500: 1.25rem;
+  --fs-600: 1.5rem;
+  --fs-700: 1.75rem;
+  --fs-800: 2rem;
+  --fs-900: 5rem; */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-family: var(--font-family-default);
+  font-size: var(--fs-400);
+}

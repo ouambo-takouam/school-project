@@ -1,0 +1,16 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+<div class="login-wrapper">
+    <h1 class="section-title">Bienvenue, créez votre compte scolaire.</h1>
+    <div class="form-wrapper">
+        <h2>C'est un grand plaisir de vous accueillir à bord !</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{form}}
+            <button type="submit">Créer le compte</button>
+        </form>
+        <p>Avez-vous deja un compte ? <a href="{% url 'login' %}">Se connecter</a></p>
+    </div>
+</div>
+{% endblock %}
