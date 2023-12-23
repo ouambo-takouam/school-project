@@ -8,5 +8,5 @@ class RedirectAuthenticatedUserMixin(AccessMixin):
     def dispatch(self, request, *args, **kwargs):
         if self.request.user.is_authenticated:
             # Redirection vers une autre URL si l'utilisateur est déjà connecté
-            return redirect('school:home')
+            return redirect('school:dashboard')
         return super().dispatch(request, *args, **kwargs)

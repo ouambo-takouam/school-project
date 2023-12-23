@@ -21,7 +21,7 @@ class Classe(models.Model):
         return self.label
     
     def get_absolute_url(self):
-        return reverse("school:home")
+        return reverse("school:dashboard")
 
 
 class Matiere(models.Model):
@@ -32,7 +32,7 @@ class Matiere(models.Model):
         return self.label
     
     def get_absolute_url(self):
-        return reverse("school:home")
+        return reverse("school:dashboard")
 
 
 class Student(models.Model):
@@ -56,4 +56,4 @@ class Student(models.Model):
         return self.first_name
     
     def get_absolute_url(self):
-        return reverse("school:home")
+        return reverse("school:dashboard")

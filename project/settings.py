@@ -124,8 +124,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-LOGIN_REDIRECT_URL = 'school:home'
+LOGIN_REDIRECT_URL = 'school:dashboard'
 LOGIN_URL = 'login'
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
-CRISPY_TEMPLATE_PACK = "tailwind"
+# CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+# CRISPY_TEMPLATE_PACK = "tailwind"
