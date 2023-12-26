@@ -1,16 +1,19 @@
 {% extends "users/base.html" %}
 
 {% block content %}
-<div class="login-wrapper">
+<main>
     <h1 class="section-title">Bienvenue, Connectez-vous !</h1>
     <div class="form-wrapper">
         <h2>C'est un grand plaisir de vous accueillir à bord !</h2>
         <form method="post">
             {% csrf_token %}
             {{form}}
-            <button type="submit">Se connecter</button>
+            <button type="submit" class="submit-btn">
+                <span class="material-symbols-outlined">lock</span>
+                <span>Se connecter</span>
+            </button>
         </form>
         <p>Vous n'avez pas de compte ? <a href="{% url 'school:school_create' %}">Ouvrir un compte</a></p>
     </div>
-</div>
+</main>
 {% endblock %}

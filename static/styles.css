@@ -16,22 +16,13 @@
   --clr-grey-800: #1a1a1a;
   --clr-grey-900: #101010;
 
+  --clr-green-01: #2ca01c;
+  --clr-green-04: #19860b;
+
   --font-family-default: "Inter", sans-serif;
   --font-family-kumbh: "Kumbh Sans", sans-serif;
 
-  --fw-regular: 400;
-  --fw-medium: 500;
-  --fw-semi-bold: 600;
-  --fw-bold: 700;
-  --fw-extra-bold: 800;
-  --fw-black: 900;
-
   --fs-400: 1.125rem;
-  /* --fs-500: 1.25rem;
-  --fs-600: 1.5rem;
-  --fs-700: 1.75rem;
-  --fs-800: 2rem;
-  --fs-900: 5rem; */
 }
 
 *,
@@ -42,7 +33,13 @@
 
 * {
   margin: 0;
+  padding: 0;
   font: inherit;
+}
+
+a,
+div {
+  outline: 0;
 }
 
 img,
@@ -52,6 +49,7 @@ svg {
 }
 
 body {
+  height: 100%;
   font-family: var(--font-family-default);
   font-size: var(--fs-400);
 }

@@ -56,7 +56,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 class ClasseCreateView(LoginRequiredMixin, CreateView):
     model = Classe
     form_class = ClasseForm
-    template_name = 'school/classe_create.html'
+    template_name = 'school/classe/classe_create.html'
     success_url = reverse_lazy('school:dashboard')
 
     def form_valid(self, form):
@@ -67,18 +67,19 @@ class ClasseCreateView(LoginRequiredMixin, CreateView):
 class ClasseUpdateView(LoginRequiredMixin, UpdateView):
     model = Classe
     form_class = ClasseForm
-    template_name_suffix = "_update_form"
+    template_name = 'school/classe/classe_update_form.html'
 
 
 class ClasseDeleteView(LoginRequiredMixin, DeleteView):
     model = Classe
+    template_name = 'school/classe/classe_confirm_delete.html'
     success_url = reverse_lazy("school:dashboard")
 
 
 class MatiereCreateView(LoginRequiredMixin, CreateView):
     model = Matiere
     form_class = MatiereForm
-    template_name = 'school/matiere_create.html'
+    template_name = 'school/matiere/matiere_create.html'
     success_url = reverse_lazy('school:dashboard')
 
     def form_valid(self, form):
@@ -89,18 +90,19 @@ class MatiereCreateView(LoginRequiredMixin, CreateView):
 class MatiereUpdateView(LoginRequiredMixin, UpdateView):
     model = Matiere
     form_class = MatiereForm
-    template_name_suffix = "_update_form"
+    template_name = 'school/matiere/matiere_update_form.html'
 
 
 class MatiereDeleteView(LoginRequiredMixin, DeleteView):
     model = Matiere
+    template_name = 'school/matiere/matiere_confirm_delete.html'
     success_url = reverse_lazy("school:dashboard")
 
 
 class StudentCreateView(LoginRequiredMixin, CreateView):
     model = Student
     form_class = StudentForm
-    template_name = 'school/student_create.html'
+    template_name = 'school/student/student_create.html'
     success_url = reverse_lazy('school:dashboard')
 
     def form_valid(self, form):
@@ -116,7 +118,7 @@ class StudentCreateView(LoginRequiredMixin, CreateView):
 class StudentUpdateView(LoginRequiredMixin, UpdateView):
     model = Student
     form_class = StudentForm
-    template_name_suffix = "_update_form"
+    template_name = 'school/student/student_update_form.html'
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -126,4 +128,5 @@ class StudentUpdateView(LoginRequiredMixin, UpdateView):
 
 class StudentDeleteView(LoginRequiredMixin, DeleteView):
     model = Student
+    template_name = 'school/student/student_confirm_delete.html'
     success_url = reverse_lazy("school:dashboard")
