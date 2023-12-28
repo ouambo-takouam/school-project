@@ -28,8 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'school.apps.SchoolConfig',
     'users.apps.UsersConfig',
-    'crispy_forms',
-    "crispy_tailwind",
+    'compressor'
 ]
 
 MIDDLEWARE = [
@@ -128,5 +127,6 @@ AUTH_USER_MODEL = 'users.CustomUser'
 LOGIN_REDIRECT_URL = 'school:dashboard'
 LOGIN_URL = 'login'
 
-# CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
-# CRISPY_TEMPLATE_PACK = "tailwind"
+COMPRESS_ROOT = BASE_DIR / 'static'
+COMPRESS_ENABLED = True
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
