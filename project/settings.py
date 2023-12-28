@@ -27,8 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'school.apps.SchoolConfig',
-    'users.apps.UsersConfig',
-    'compressor'
+    'users.apps.UsersConfig'
 ]
 
 MIDDLEWARE = [
@@ -126,7 +125,3 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_REDIRECT_URL = 'school:dashboard'
 LOGIN_URL = 'login'
-
-COMPRESS_ROOT = BASE_DIR / 'static'
-COMPRESS_ENABLED = True
-STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)

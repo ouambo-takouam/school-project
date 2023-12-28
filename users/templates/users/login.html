@@ -2,20 +2,22 @@
 
 {% block content %}
 <main>
-  <h1>Bienvenue, Connectez-vous !</h1>
   <div>
-    <h2>C'est un grand plaisir de vous accueillir à bord !</h2>
-    <form method="post">
-      {% csrf_token %} {{form}}
-      <button type="submit">
-        <span class="material-symbols-outlined">lock</span>
-        <span>Se connecter</span>
-      </button>
-    </form>
-    <p>
-      Vous n'avez pas de compte ?
-      <a href="{% url 'school:school_create' %}">Ouvrir un compte</a>
-    </p>
+    <h1>Bienvenue, Connectez-vous !</h1>
+    <div>
+      <h2>C'est un grand plaisir de vous accueillir à bord !</h2>
+      <form method="post">
+        {% csrf_token %} {{form}}
+        <button type="submit">
+          <!-- <span class="material-symbols-outlined">lock</span> -->
+          <span>Se connecter</span>
+        </button>
+      </form>
+      <p>
+        Vous n'avez pas de compte ?
+        <a href="{% url 'school:school_create' %}">Ouvrir un compte</a>
+      </p>
+    </div>
   </div>
 </main>
 {% endblock %}
