@@ -54,10 +54,35 @@ div {
   outline: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 img,
 svg {
   display: block;
   max-width: 100%;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  cursor: pointer;
 }
 
 body {

@@ -1,0 +1,20 @@
+{% extends "_base.html" %} 
+
+{% load static %} 
+
+{% block custom_styles %}
+<link rel="stylesheet" href="{% static '/school/css/styles.css/' %}" />
+{% endblock %} 
+
+{% block custom_js %}
+<script src="{% static '/school/js/main.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<main>
+  <!-- Side navigation -->
+  {% include "school/components/navigation.html" %}
+  <!-- top navigation -->
+  <section class="page-content">{% block details %}{% endblock %}</section>
+</main>
+{% endblock %}
