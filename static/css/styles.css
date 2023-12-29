@@ -16,8 +16,28 @@
   --clr-grey-800: #1a1a1a;
   --clr-grey-900: #101010;
 
-  --clr-green-01: #2ca01c;
-  --clr-green-04: #19860b;
+  --clr-primary-25: #d0d3de;
+  --clr-primary-50: #b1b5c8;
+  --clr-primary-100: #8a90ac;
+  --clr-primary-200: #636c90;
+  --clr-primary-300: #3c4775;
+  --clr-primary-400: #152259;
+  --clr-primary-500: #121c4a;
+  --clr-primary-600: #0e173b;
+  --clr-primary-700: #0b112d;
+  --clr-primary-800: #070b1e;
+  --clr-primary-900: #040712;
+
+  --clr-secondary-50: #b9d7f1;
+  --clr-secondary-100: #b9d7f1;
+  --clr-secondary-200: #73b0e2;
+  --clr-secondary-300: #509cdb;
+  --clr-secondary-400: #2d88d4;
+  --clr-secondary-500: #2671b1;
+  --clr-secondary-600: #1e5b8d;
+  --clr-secondary-700: #17446a;
+  --clr-secondary-800: #0f2d47;
+  --clr-secondary-900: #091b2a;
 
   --font-family-default: "Inter", sans-serif;
   --font-family-kumbh: "Kumbh Sans", sans-serif;
