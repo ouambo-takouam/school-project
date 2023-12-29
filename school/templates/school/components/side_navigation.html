@@ -1,0 +1,43 @@
+<aside class="sidebar" aria-label="Sidenav">
+    <div class="sidebar-navigation">
+        <ul>
+            <li>
+                <a href="{% url 'school:dashboard' %}" class="sidebar-link">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span>Tableau de Bord</span>
+                </a>
+            </li>
+            <li>
+                <button type="button" class="dropdown-btn" aria-controls="dropdown-pages" data-collapse-toggle="dropdown-pages">
+                    <span class="material-symbols-outlined">school</span>
+                    <span>Élèves</span>
+                    <span class="material-symbols-outlined expand">expand_more</span>
+                </button>
+                <ul class="dropdown-content">
+                    <li>
+                        <a href="#" class="sidebar-link">Liste élèves</a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">Ajouter</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <button type="button" class="dropdown-btn" aria-controls="dropdown-pages" data-collapse-toggle="dropdown-pages">
+                    <span class="material-symbols-outlined">fitness_center</span>
+                    <span>Matières</span>
+                    <span class="material-symbols-outlined">expand_more</span>
+                </button>
+                <ul class="dropdown-content">
+                    <li>
+                        <a href="#" class="sidebar-link">Liste matières</a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">Ajouter</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar-settings"></div>
+</aside>
