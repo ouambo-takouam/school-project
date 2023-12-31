@@ -1,10 +1,5 @@
 {% extends "school/_base.html" %}
 
 {% block details %}
-<header class="dashboard-header">
-    <form action="{% url 'logout' %}" method="post">
-        {% csrf_token %}
-        <input type="submit" class="submit-btn" value="Se deconnecter">
-    </form>
-</header>
+Page content
 {% endblock %}

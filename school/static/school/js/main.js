@@ -1,7 +1,28 @@
-var dropdown = document.getElementsByClassName("dropdown-btn");
-var i;
+// Ajout et suppression de la classe 'active' sur les elements de navigation
+const listItems = document.querySelectorAll(
+  ".sidebar .sidebar-menu > ul > li.submenu-open ul > li:not(.submenu)"
+);
 
-for (i = 0; i < dropdown.length; i++) {
+// Fonction pour gérer le clic sur un élément <li>
+function toggleActiveClass() {
+  // Retirer la classe 'active' de tous les éléments <li>
+  listItems.forEach((item) => {
+    item.classList.remove("active");
+  });
+
+  // Ajouter la classe 'active' uniquement à l'élément cliqué
+  this.classList.toggle("active");
+}
+
+// Ajout d'un écouteur d'événement au clic pour chaque élément <li>
+listItems.forEach((item) => {
+  item.addEventListener("click", toggleActiveClass);
+});
+
+// Gestion deroulement du sub-menu
+var dropdown = document.getElementsByClassName("dropdown-btn");
+
+for (let i = 0; i < dropdown.length; i++) {
   dropdown[i].addEventListener("click", function () {
     var ul = this.nextElementSibling;
     if (ul.style.display === "block") {
