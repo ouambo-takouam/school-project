@@ -32,3 +32,16 @@ for (let i = 0; i < dropdown.length; i++) {
     }
   });
 }
+
+// Gestion deroulement du nav-profile
+var navprofilelink = document.getElementById("nav-profile-link");
+
+navprofilelink.addEventListener("click", function () {
+  var navprofile = this.nextElementSibling;
+
+  if (navprofile.style.display === "grid") {
+    navprofile.style.display = "none";
+  } else {
+    navprofile.style.display = "grid";
+  }
+});

@@ -72,6 +72,12 @@ body {
   font-size: var(--fs-400);
 }
 
+hr {
+  height: 1px;
+  background-color: #e8ebed;
+  border: 0;
+}
+
 a,
 div {
   outline: 0;
@@ -84,8 +90,12 @@ a {
 
 img,
 svg {
-  display: block;
+  vertical-align: middle;
+}
+
+img {
   max-width: 100%;
+  height: auto;
 }
 
 ul,
