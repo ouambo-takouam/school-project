@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
+from django.views.generic.list import ListView
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 
 from .forms import LoginAuthenticationForm, UserProfileForm, UserUpdateForm, ProfileUpdateForm
 from .mixins import RedirectAuthenticatedUserMixin
+from .models import CustomUser
 
 
 class CustomLoginView(RedirectAuthenticatedUserMixin, LoginView):
@@ -47,3 +49,8 @@ def create_user_profile(request):
         form = UserProfileForm()
 
     return render(request, 'users/create_profile.html', {'form': form})
+
+
+class UsersListView(ListView):
+    model = CustomUser
+    template_name = 'users/users_list.html'

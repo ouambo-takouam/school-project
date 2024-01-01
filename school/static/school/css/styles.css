@@ -8,7 +8,7 @@
   top: 3.75rem;
   left: 0;
   z-index: 40;
-  width: 15rem;
+  width: 17rem;
   height: calc(100svh - 3.5rem);
 }
 
@@ -157,7 +157,7 @@
 .header .header-left {
   float: left;
   position: relative;
-  width: 15rem;
+  width: 17rem;
   height: 100%;
   padding: 0 1.063rem;
   display: flex;
@@ -352,9 +352,9 @@
 *****---- DASHBOARD ----****
 ***************************/
 .page-content {
-  width: calc(100% - 15rem);
+  width: calc(100% - 17rem);
   margin-left: auto;
-  padding: 5.313rem 1.563rem 1.563rem;
+  padding: 5.313em 7em 1.563em;
   height: 100vh;
   color: var(--clr-grey-400);
   background-color: #fafbfe;
@@ -410,7 +410,8 @@
   display: none;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
   padding: 0.3em 0.6em;
   border: 1px solid rgba(145, 158, 171, 0.32);
   font-weight: var(--fw-regular);
@@ -422,12 +423,14 @@
   transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group select:focus {
   border-color: #ff9f43;
   outline: none;
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group select:focus {
   outline: none;
 }
 

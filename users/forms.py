@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 from school.models import School
 from .models import CustomUser, Profile
@@ -25,27 +25,30 @@ class LoginAuthenticationForm(AuthenticationForm):
         # Suppression de l'étiquette (label) associée au champ password
         self.fields['password'].label = ''
 
-    
-class UserProfileForm(forms.ModelForm):
-    role = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput())
 
-    class Meta:
+class UserProfileForm(UserCreationForm):
+    phone = forms.CharField(label='Numéro de téléphone', max_length=20)
+    role = forms.ChoiceField(label='Rôle', choices=Profile.CHOICES)
+
+    class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = ['username', 'password', 'phone']
+        fields = ['username', 'email', 'phone']
+        labels = {
+            'username': 'Nom d\'utilisateur',
+            'email': 'Adresse e-mail'
+        }
 
     def save(self, school, commit=True):
         user = super().save(commit=False)
-        password = self.cleaned_data['password']
+        user.phone = self.cleaned_data['phone']
         user.school = school
-
         if commit:
-            user.set_password(password)
             user.save()
-            
-            profile = Profile.objects.create(user=user, role=self.cleaned_data['role'])
-            profile.save()
 
+            profile = Profile.objects.create(
+                user=user,
+                role=self.cleaned_data['role']
+            )
         return user
 
 
