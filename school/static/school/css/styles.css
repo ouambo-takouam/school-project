@@ -317,22 +317,35 @@
   right: 30px;
   width: 150px;
   background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.nav-profile .dropdown-item {
+.nav-profile .dropdown-item,
+.nav-profile form button {
   color: #637381;
   padding: 7px 10px;
   font-size: 0.9rem;
+  display: flex;
+  align-items: center;
 }
 
-.nav-profile .dropdown-item:hover {
-  background-color: #63738112;
+.nav-profile form button {
+  color: #EA5455;
+}
+
+.nav-profile form button {
+  width: 100%;
+}
+
+.nav-profile .dropdown-item:hover,
+.nav-profile form button:hover {
+  background-color: #7b868f30;
 }
 
 .nav-profile .dropdown-item svg,
-.nav-profile .dropdown-item img {
+.nav-profile form img {
   stroke-width: 1px;
-  margin-right: 5px;
+  margin-right: 8px;
   width: 18px;
 }
 
@@ -342,4 +355,5 @@
   margin-left: auto;
   height: 100vh;
   color: var(--clr-grey-400);
+  background-color: var(--clr-gray-50);
 }

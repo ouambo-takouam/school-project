@@ -4,7 +4,7 @@ body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  background-color: var(--clr-grey-5);
+  background-color: var(--clr-gray-50);
 }
 
 .main {
@@ -13,8 +13,8 @@ body {
 
 /*--- login styles ---*/
 .section-title {
-  color: var(--clr-grey-400);
-  font-size: 1.3rem;
+  color: var(--clr-gray-600);
+  font-size: 1.6rem;
   font-family: var(--font-family-kumbh);
   font-weight: var(--fw-medium);
   line-height: 1.5em;
@@ -27,10 +27,11 @@ body {
   justify-self: center;
   padding: 1.7em 1.5em;
   max-width: 17em;
+  margin: 0 auto;
 }
 
 .form-wrapper h2 {
-  font-size: 0.75rem;
+  font-size: .9rem;
   font-weight: var(--fw-regular);
   color: rgb(57, 58, 61);
   line-height: 1.2em;
@@ -38,7 +39,7 @@ body {
 }
 
 .form-wrapper p {
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: var(--fw-regular);
   color: rgb(104, 105, 107);
   line-height: 1.2em;
@@ -65,13 +66,13 @@ body {
 
 .form-wrapper input {
   padding: 0.12em 0.5em;
-  border: 1px solid var(--clr-grey-200);
+  border: 1px solid var(--clr-gray-200);
   font-weight: var(--fw-regular);
   line-height: 1.8em;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   margin-bottom: 0.7em;
   border-radius: 0.25rem;
-  color: var(--clr-grey-700);
+  color: var(--clr-gray-700);
   transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -87,28 +88,28 @@ body {
 }
 
 .form-wrapper input::-webkit-input-placeholder {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: var(--fw-regular);
   font-family: var(--font-family-kumbh);
 }
 
 :-moz-placeholder {
   /* For Firefox */
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: var(--fw-regular);
   font-family: var(--font-family-kumbh);
 }
 
 ::-moz-placeholder {
   /* For Firefox */
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: var(--fw-regular);
   font-family: var(--font-family-kumbh);
 }
 
 :-ms-input-placeholder {
   /* For Microsoft Edge */
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: var(--fw-regular);
   font-family: var(--font-family-kumbh);
 }
