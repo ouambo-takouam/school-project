@@ -71,3 +71,12 @@ class UserUpdateForm(forms.ModelForm):
         self.fields['phone'].widget = forms.TextInput(attrs={
             'placeholder': '+1452 876 5432'
         })
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['image']
+        widgets = {
+            'image': forms.FileInput(attrs={'accept': 'image/*'}),
+        }

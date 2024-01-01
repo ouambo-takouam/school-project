@@ -17,7 +17,7 @@
             <div class="profile-top">
                 <div class="profile-content">
                     <div class="profile-contentimg">
-                        <img src="{% static '/school/images/avatar.jpg' %}" alt="">
+                        <img src="{{user.profile.image.url}}" alt="avatar">
                     </div>
                     <div class="profile-contentname">
                         <h2>{{user.username}}</h2>
@@ -27,10 +27,11 @@
             </div>
         </div>
         <div class="row">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group">
                     {{u_form}}
+                    {{p_form}}
                 </div>
                 <div class="btn-group">
                     <button type="submit" class="submit-btn">Mettre a jour</button>

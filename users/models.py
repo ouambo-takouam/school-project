@@ -13,6 +13,7 @@ class Profile(models.Model):
         ('teacher', 'Teacher')
     ]
     
+    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     role = models.CharField(max_length=50, choices=CHOICES, default='admin')
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
 
