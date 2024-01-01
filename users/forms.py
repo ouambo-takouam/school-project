@@ -52,8 +52,22 @@ class UserProfileForm(forms.ModelForm):
 class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = CustomUser
-        fields = ['username', 'email']
+        fields = ['first_name', 'last_name', 'username', 'email', 'phone']
         labels = {
+            'first_name': 'Nom',
+            'last_name': 'Prenom',
             'username': 'Nom d\'utilisateur',
-            'email': 'Adresse e-mail'
+            'email': 'Adresse e-mail',
+            'phone': 'Numéro de téléphone'
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['email'].widget = forms.TextInput(attrs={
+            'placeholder': 'william@example.com'
+        })
+
+        self.fields['phone'].widget = forms.TextInput(attrs={
+            'placeholder': '+1452 876 5432'
+        })

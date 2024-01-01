@@ -118,7 +118,8 @@ button {
   cursor: pointer;
 }
 
-.submit-btn {
+.submit-btn,
+.cancel-btn {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -130,13 +131,24 @@ button {
   font-weight: 400;
   margin-top: 10px;
   border: none;
-  background: #ff9f43;
   color: white;
   transition: background 0.15s ease-in-out;
 }
 
+.submit-btn {
+  background: #ff9f43;
+}
+
 .submit-btn:hover {
   background: #fe820e;
+}
+
+.cancel-btn {
+  background: #637381;
+}
+
+.cancel-btn:hover {
+  background: #424b52;
 }
 
 .material-symbols-outlined {

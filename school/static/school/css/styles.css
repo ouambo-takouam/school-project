@@ -419,7 +419,7 @@
   font-size: 0.95rem;
   margin-bottom: 0.7em;
   border-radius: 0.25rem;
-  color: #637381;
+  color: #2d2b2b;
   transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -430,6 +430,11 @@
 
 .form-group input:focus {
   outline: none;
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.8rem;
 }
 
 /***----- PROFILE PAGE ----***/
