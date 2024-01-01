@@ -1,4 +1,6 @@
-// Ajout et suppression de la classe 'active' sur les elements de navigation
+//*** SIDE NAVIGATION ***/
+
+/**--- Ajout et suppression de la classe 'active' sur les elements de navigation ---**/
 const listItems = document.querySelectorAll(
   ".sidebar .sidebar-menu > ul > li.submenu-open ul > li:not(.submenu)"
 );
@@ -19,12 +21,15 @@ listItems.forEach((item) => {
   item.addEventListener("click", toggleActiveClass);
 });
 
-// Gestion deroulement du sub-menu
-var dropdown = document.getElementsByClassName("dropdown-btn");
 
-for (let i = 0; i < dropdown.length; i++) {
-  dropdown[i].addEventListener("click", function () {
+
+/**--- Gestion apparition et disparition des sous-menus  ---**/
+var dropdownList = document.getElementsByClassName("dropdown-btn");
+
+for (let i = 0; i < dropdownList.length; i++) {
+  dropdownList[i].addEventListener("click", function () {
     var ul = this.nextElementSibling;
+    
     if (ul.style.display === "block") {
       ul.style.display = "none";
     } else {

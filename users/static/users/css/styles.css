@@ -31,7 +31,7 @@ body {
 }
 
 .form-wrapper h2 {
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: var(--fw-regular);
   color: rgb(57, 58, 61);
   line-height: 1.2em;
@@ -47,7 +47,7 @@ body {
 }
 
 .form-wrapper a {
-  color: #0875ce;
+  color: #ff9f43;
   text-decoration: none;
 }
 
@@ -78,8 +78,8 @@ body {
 
 .form-wrapper input:hover,
 .form-wrapper input:focus {
-  border-color: var(--clr-secondary-400);
-  box-shadow: 0 0 5px var(--clr-secondary-100);
+  border-color: #ff9f43;
+  box-shadow: 0 0 5px #ff9f43;
   outline: none;
 }
 

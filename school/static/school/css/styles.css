@@ -330,7 +330,7 @@
 }
 
 .nav-profile form button {
-  color: #EA5455;
+  color: #ea5455;
 }
 
 .nav-profile form button {
@@ -349,11 +349,130 @@
   width: 18px;
 }
 
-/**** DO NOT TOUCH *****/
+/***************************
+*****---- DASHBOARD ----****
+***************************/
 .page-content {
   width: calc(100% - 15rem);
   margin-left: auto;
+  padding: 5.313rem 1.563rem 1.563rem;
   height: 100vh;
   color: var(--clr-grey-400);
-  background-color: var(--clr-gray-50);
+  background-color: #fafbfe;
+}
+
+.page-header {
+  margin-bottom: 1.563em;
+}
+
+.page-header h4 {
+  font-weight: 700;
+  color: #212b36;
+  font-size: 1.125rem;
+}
+
+.page-header h6 {
+  font-weight: 400;
+  color: #555;
+  font-size: 0.875rem;
+}
+
+.card {
+  border: 1px solid #e8ebed;
+  border-radius: 6px;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+}
+
+.card .card-body {
+  padding: 1.25em;
+}
+
+/***---- FORM STYLES ----***/
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form-group div {
+  display: grid;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  color: #212b36;
+  font-weight: 500;
+  font-size: 14px;
+  display: block;
+}
+
+.form-group .helptext {
+  display: none;
+}
+
+.form-group input {
+  padding: 0.3em 0.6em;
+  border: 1px solid rgba(145, 158, 171, 0.32);
+  font-weight: var(--fw-regular);
+  line-height: 1.8em;
+  font-size: 0.95rem;
+  margin-bottom: 0.7em;
+  border-radius: 0.25rem;
+  color: #637381;
+  transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-group input:focus {
+  border-color: #ff9f43;
+  outline: none;
+}
+
+.form-group input:focus {
+  outline: none;
+}
+
+/***----- PROFILE PAGE ----***/
+.profile-set {
+  margin-bottom: 1.875em;
+}
+
+.profile-set .profile-head {
+  height: 109px;
+  background: linear-gradient(90deg, #ea5455 0%, #ff9f43 100%);
+  border-radius: 0 10px 0 0;
+}
+
+.profile-top,
+.profile-content {
+  display: flex;
+  align-items: center;
+}
+
+.profile-set .profile-top .profile-contentimg {
+  margin-top: -40px;
+  width: 130px;
+  position: relative;
+  border: 10px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2509803922);
+}
+
+.profile-set .profile-top .profile-contentimg img {
+  border-radius: 50px;
+}
+
+.profile-set .profile-top .profile-contentname {
+  padding-left: 20px;
+}
+
+.profile-set .profile-top .profile-contentname h2 {
+  font-size: 18px;
+  color: #212b36;
+  font-weight: 700;
+}
+
+.profile-set .profile-top .profile-contentname h4 {
+  color: #777;
+  font-size: 14px;
 }
