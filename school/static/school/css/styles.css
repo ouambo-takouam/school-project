@@ -414,10 +414,16 @@ thead tr {
 th,
 td {
   padding: 0.6rem 0.9rem;
+  color: #637381;
+  font-weight: 500;
+}
+
+td a {
+  margin: 0 0.35rem;
 }
 
 tbody tr {
-  border-bottom: 1px solid rgba(33, 37, 41, 0.08);
+  border-bottom: 1px solid #e9ecef;
 }
 
 tbody tr:hover {

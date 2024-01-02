@@ -42,7 +42,7 @@ class ClasseForm(ModelForm):
         self.fields['label'].label = 'Nom de la classe'
     
 
-class MatiereForm(ModelForm):
+class MatiereForm(ModelForm): #SubjectForm
     class Meta:
         model = Matiere
         fields = ['label']

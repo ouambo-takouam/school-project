@@ -27,11 +27,11 @@
             <th>{{object.username}}</th>
             <td>{{object.phone}}</td>
             <td>{{object.email}}</td>
-            <td>{{object.profile.role}}</td>
-            <td>{{object.date_joined}}</td>
+            <td>{{object.profile.display_role}}</td>
+            <td>{{object.date_joined|date:"n/j/Y"}}</td>
             <td>Actif</td>
             <td>
-              <a href="#">
+              <a href="{% url 'users:update' object.pk %}">
                 <img src="{% static '/school/images/edit.svg' %}" alt="edit" />
               </a>
               <a href="#">

@@ -9,50 +9,61 @@ class LoginAuthenticationForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        # Personnalisation du champ username avec un placeholder et sans label
+        # Personnalisation des champs avec placeholder et sans label
         self.fields['username'].widget = forms.TextInput(attrs={
             'placeholder': 'Votre nom d\'utilisateur'
         })
-
-        # Suppression de l'étiquette (label) associée au champ username
         self.fields['username'].label = ''
 
-        # Personnalisation du champ password avec un placeholder et sans label
         self.fields['password'].widget = forms.PasswordInput(attrs={
             'placeholder': 'Votre mot de passe'
         })
-
-        # Suppression de l'étiquette (label) associée au champ password
         self.fields['password'].label = ''
 
 
-class UserProfileForm(UserCreationForm):
+class UserAccountForm(forms.ModelForm):
+    password = forms.CharField(label='Mot de passe', widget=forms.PasswordInput, required=False)
     phone = forms.CharField(label='Numéro de téléphone', max_length=20)
     role = forms.ChoiceField(label='Rôle', choices=Profile.CHOICES)
 
-    class Meta(UserCreationForm.Meta):
+    class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'phone']
+        fields = ['username', 'email', 'password', 'phone']
         labels = {
             'username': 'Nom d\'utilisateur',
             'email': 'Adresse e-mail'
         }
 
-    def save(self, school, commit=True):
+    def __init__(self, *args, **kwargs):
+        self.school = kwargs.pop('school', None)  # Retrieve 'school' from kwargs
+        super().__init__(*args, **kwargs)
+        self.fields['phone'].required = True  # Make phone field required
+        self.fields['password'].required = False  # Allow password field to be optional for updates
+
+    def save(self, commit=True):
         user = super().save(commit=False)
-        user.phone = self.cleaned_data['phone']
-        user.school = school
+        if self.cleaned_data.get('password'):
+            user.set_password(self.cleaned_data['password'])
+            user.phone = self.cleaned_data['phone']
+        
+        if self.school:  # Check if 'school' is provided (for creating new users)
+            user.school = self.school
+        
         if commit:
             user.save()
-
-            profile = Profile.objects.create(
+            profile, created = Profile.objects.get_or_create(
                 user=user,
-                role=self.cleaned_data['role']
+                defaults={'role': self.cleaned_data['role']}
             )
+            
+            if not created:
+                profile.role = self.cleaned_data['role']
+                profile.save()
+                
         return user
 
 
-class UserUpdateForm(forms.ModelForm):
+class UserForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = ['first_name', 'last_name', 'username', 'email', 'phone']
@@ -76,7 +87,7 @@ class UserUpdateForm(forms.ModelForm):
         })
 
 
-class ProfileUpdateForm(forms.ModelForm):
+class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image']
