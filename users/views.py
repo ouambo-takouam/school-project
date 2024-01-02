@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from django.views.generic.list import ListView
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
+from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView
 
 from .forms import LoginAuthenticationForm, UserProfileForm, UserUpdateForm, ProfileUpdateForm
 from .mixins import RedirectAuthenticatedUserMixin
@@ -37,13 +38,14 @@ def profile(request):
     })
 
 
-def create_user_profile(request):
+@login_required
+def add_user(request):
     if request.method == 'POST':
         form = UserProfileForm(request.POST)
 
         if form.is_valid():
             form.save(school=request.user.school)
-            return redirect('school:dashboard')
+            return redirect('users:list')
 
     else:
         form = UserProfileForm()
@@ -51,6 +53,11 @@ def create_user_profile(request):
     return render(request, 'users/create_profile.html', {'form': form})
 
 
-class UsersListView(ListView):
+class UserListView(ListView):
     model = CustomUser
     template_name = 'users/users_list.html'
+
+    def get_queryset(self):
+        current_user = self.request.user
+        queryset = CustomUser.objects.filter(school=current_user.school)
+        return queryset

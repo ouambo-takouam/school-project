@@ -1,17 +1,51 @@
-{% extends "school/_base.html" %}
-
-{% load static %}
-
-{% block details %}
+{% extends "school/_base.html" %} {% load static %} {% block details %}
 <div class="page-header">
-    <div class="page-title">
-        <h4>Liste des utilisateurs</h4>
-        <h6>Gérer vos utilisateurs</h6>
-    </div>
+  <div class="page-title">
+    <h4>Liste des utilisateurs</h4>
+    <h6>Gérer vos utilisateurs</h6>
+  </div>
 </div>
 
 <div class="card">
-    <div class="card-body">
+  <div class="card-body">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Nom d'utilisateur</th>
+            <th>Numéro tél.</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Créé le</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for object in object_list %}
+          <tr>
+            <th>{{object.username}}</th>
+            <td>{{object.phone}}</td>
+            <td>{{object.email}}</td>
+            <td>{{object.profile.role}}</td>
+            <td>{{object.date_joined}}</td>
+            <td>Actif</td>
+            <td>
+              <a href="#">
+                <img src="{% static '/school/images/edit.svg' %}" alt="edit" />
+              </a>
+              <a href="#">
+                <img
+                  src="{% static '/school/images/delete.svg' %}"
+                  alt="edit"
+                />
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>
 {% endblock %}
