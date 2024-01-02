@@ -36,9 +36,14 @@ class UserAccountForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         self.school = kwargs.pop('school', None)  # Retrieve 'school' from kwargs
+        is_update = kwargs.pop('is_update', False)  # Check if it's an update
         super().__init__(*args, **kwargs)
         self.fields['phone'].required = True  # Make phone field required
         self.fields['password'].required = False  # Allow password field to be optional for updates
+
+        if is_update:
+            # Exclude password field when updating an existing user
+            self.fields.pop('password')
 
     def save(self, commit=True):
         user = super().save(commit=False)

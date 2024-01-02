@@ -1,8 +1,8 @@
 @import url("../../../../static/css/styles.css");
 
-/************************
-****---- SIDEBAR ----****
-************************/
+/******************************
+*******----- SIDEBAR -----*****
+******************************/
 .sidebar {
   position: fixed;
   top: 3.75rem;
@@ -12,7 +12,6 @@
   height: calc(100svh - 3.5rem);
 }
 
-/** Sidebar Navigation **/
 .sidebar .sidebar-menu {
   overflow-y: auto;
   padding: 1.25rem;
@@ -58,16 +57,10 @@
   color: #fe9f43;
 }
 
-/* .sidebar .sidebar-menu > ul > li.submenu-open ul li a.active {
-  color: #ff9f43;
-} */
-
-.sidebar .sidebar-menu > ul > li svg {
-  width: 18px;
-  margin-right: 10px;
+.sidebar .sidebar-menu > ul > li span[class*="material"] {
+  font-size: 1.25rem;
+  margin-right: 0.4em;
 }
-
-/** may be should be deleted **/
 
 .sidebar .sidebar-menu .menu-arrow {
   position: absolute;
@@ -101,7 +94,7 @@
   transform: rotate(-45deg);
 }
 
-/***--- sub-menu ---***/
+/*****--- SUB MENU ---*****/
 .sidebar .sidebar-menu > ul > li.submenu-open .submenu ul {
   display: none;
   border: 0;
@@ -138,11 +131,11 @@
   color: #fe9f43;
 }
 
-/********************************
+/*********************************
 *****---- TOP NAVIGATION ----*****
 *********************************/
 
-/***-------1. HEADER-LEFT -------***/
+/***----- HEADER-LEFT -----***/
 .header {
   background: #fff;
   border-bottom: 1px solid #dee2e6;
@@ -191,7 +184,7 @@
   width: 16px;
 }
 
-/***-------2. HEADER-RIGHT (USER MENU) -------***/
+/***----- HEADER-RIGHT -----***/
 .nav {
   display: flex;
   align-items: center;
@@ -251,7 +244,7 @@
   color: #ff9f43;
 }
 
-/*****---- 2.1 User Info -----****/
+/***----- USER PROFILE -----***/
 .user-info {
   display: flex;
   align-items: center;
@@ -308,7 +301,7 @@
   right: 12px;
 }
 
-/*****---- 2.2 User Info (drop-down section) -----****/
+/***----- USER PROFILE / DROPDOWN -----***/
 .nav-profile {
   position: fixed;
   display: none;
@@ -360,7 +353,7 @@
   background-color: #fafbfe;
 }
 
-/*****---- Dashboard HEADER -----****/
+/******----- PAGE HEADER -----******/
 .page-header {
   margin-bottom: 1.563em;
 }
@@ -377,7 +370,7 @@
   font-size: 0.875rem;
 }
 
-/*****---- Dashboard CARD -----****/
+/******----- PAGE CARD -----******/
 .card {
   border: 1px solid #e8ebed;
   border-radius: 6px;
@@ -430,9 +423,8 @@ tbody tr:hover {
   background: #f5f5f5;
 }
 
-/*****---- Dashboard TABLE -----****/
+/******----- PAGE TABLE -----******/
 
-/***---- FORM STYLES ----***/
 .form-group {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -483,7 +475,7 @@ tbody tr:hover {
   gap: 0.8rem;
 }
 
-/***----- PROFILE PAGE ----***/
+/****----- PROFILE PAGE ----*****/
 .profile-set {
   margin-bottom: 1.875em;
 }
@@ -519,7 +511,6 @@ tbody tr:hover {
   height: 85%;
   border-radius: 50%;
   object-fit: cover;
-  /* object-position: center center; */
 }
 
 .profile-set .profile-top .profile-contentname {
@@ -535,4 +526,46 @@ tbody tr:hover {
 .profile-set .profile-top .profile-contentname h4 {
   color: #777;
   font-size: 14px;
+}
+
+/****----- DELETE MODAL ----*****/
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0000001d;
+  color: #545454;
+  height: 100svh;
+}
+
+.modal-wrapper .modal {
+  position: relative;
+  width: 25%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  text-align: center;
+}
+
+.modal-wrapper .close-btn {
+  position: absolute;
+  right: 0.8em;
+  top: 0.8em;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.modal-wrapper .delete-icon {
+  font-size: 2.4rem;
+}
+
+.modal-wrapper .btn-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }

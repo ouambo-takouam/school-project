@@ -1,29 +1,33 @@
-{% extends "school/_base.html" %}
+{% extends "school/_base.html" %} 
 
-{% load static %}
+{% load static %} 
 
 {% block details %}
 <div class="page-header">
-    <div class="page-title">
-        <h4>Gestion des utilisateurs</h4>
-        <h6>Ajouter / mettre à jour un utilisateur</h6>
-    </div>
+  <div class="page-title">
+    <h4>Gestion des utilisateurs</h4>
+    <h6>Ajouter / Mettre à jour un utilisateur</h6>
+  </div>
 </div>
 
 <div class="card">
-    <div class="card-body">
-        <div class="row">
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="form-group">
-                    {{form}}
-                </div>
-                <div class="btn-group">
-                    <button type="submit" class="submit-btn">Creer</button>
-                    <a href="{% url 'school:dashboard' %}" class="cancel-btn">Annuler</a>
-                </div>
-            </form>
+  <div class="card-body">
+    <div class="row">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">{{form}}</div>
+        <div class="btn-group">
+          <button type="submit" class="submit-btn">
+            {% if form.instance.pk %} 
+            Mettre a jour 
+            {% else %} 
+            Ajouter 
+            {% endif %}
+          </button>
+          <a href="{% url 'users:list' %}" class="cancel-btn">Annuler</a>
         </div>
+      </form>
     </div>
+  </div>
 </div>
 {% endblock %}

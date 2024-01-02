@@ -34,7 +34,7 @@
               <a href="{% url 'users:update' object.pk %}">
                 <img src="{% static '/school/images/edit.svg' %}" alt="edit" />
               </a>
-              <a href="#">
+              <a href="{% url 'users:delete' object.pk %}">
                 <img
                   src="{% static '/school/images/delete.svg' %}"
                   alt="edit"

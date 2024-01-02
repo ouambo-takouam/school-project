@@ -60,11 +60,18 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
+        kwargs['is_update'] = True  # Pass is_update as True because updating
         
         if 'school' in kwargs:
             del kwargs['school']  # Exclude 'school' argument
         
         return kwargs
+    
+
+class UserDeleteView(LoginRequiredMixin, DeleteView):
+    model = CustomUser
+    template_name = 'users/user_confirm_delete.html'
+    success_url = reverse_lazy("users:list")
 
 
 class UserListView(LoginRequiredMixin, ListView):
