@@ -12,6 +12,9 @@ class School(models.Model):
     def __str__(self):
         return self.name
     
+    def get_absolute_url(self):
+        return reverse("school:dashboard")
+    
 
 class Classe(models.Model):
     label = models.CharField(max_length=20, unique=True)
@@ -21,7 +24,7 @@ class Classe(models.Model):
         return self.label
     
     def get_absolute_url(self):
-        return reverse("school:dashboard")
+        return reverse("school:classe_list")
 
 
 class Matiere(models.Model):
@@ -32,7 +35,7 @@ class Matiere(models.Model):
         return self.label
     
     def get_absolute_url(self):
-        return reverse("school:dashboard")
+        return reverse("school:matiere_list")
 
 
 class Student(models.Model):
@@ -56,4 +59,4 @@ class Student(models.Model):
         return self.first_name
     
     def get_absolute_url(self):
-        return reverse("school:dashboard")
+        return reverse("school:student_list")

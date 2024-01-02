@@ -34,9 +34,55 @@
               <span class="menu-arrow"></span>
             </a>
             <ul>
-              <li><a href="{% url 'users:new' %}">Nouvel utilisateur</a></li>
+              <li>
+                <a href="{% url 'users:new' %}">Ajouter un utilisateur</a>
+              </li>
               <li>
                 <a href="{% url 'users:list' %}">Liste des utilisateurs</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="submenu-open">
+        <h6 class="submenu-hdr">Etablissement</h6>
+        <ul>
+          <li class="submenu">
+            <a href="#" class="dropdown-btn">
+              <span class="material-symbols-outlined"> square_foot </span>
+              <span>Matières</span>
+              <span class="menu-arrow"></span>
+            </a>
+            <ul>
+              <li><a href="{% url 'school:matiere_create' %}">Ajouter une matière</a></li>
+              <li>
+                <a href="{% url 'school:matiere_list' %}">Liste des matières</a>
+              </li>
+            </ul>
+          </li>
+          <li class="submenu">
+            <a href="#" class="dropdown-btn">
+              <span class="material-symbols-outlined"> diversity_3 </span>
+              <span>Classes</span>
+              <span class="menu-arrow"></span>
+            </a>
+            <ul>
+              <li><a href="{% url 'school:classe_create' %}">Ajouter une classe</a></li>
+              <li>
+                <a href="{% url 'school:classe_list' %}">Liste des classes</a>
+              </li>
+            </ul>
+          </li>
+          <li class="submenu">
+            <a href="#" class="dropdown-btn">
+              <span class="material-symbols-outlined"> school </span>
+              <span>Elèves</span>
+              <span class="menu-arrow"></span>
+            </a>
+            <ul>
+              <li><a href="{% url 'school:student_create' %}">Ajouter un élève</a></li>
+              <li>
+                <a href="{% url 'school:student_list' %}">Liste des élèves</a>
               </li>
             </ul>
           </li>

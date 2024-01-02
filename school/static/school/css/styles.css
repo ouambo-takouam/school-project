@@ -356,6 +356,9 @@
 /******----- PAGE HEADER -----******/
 .page-header {
   margin-bottom: 1.563em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .page-header h4 {
@@ -471,6 +474,7 @@ tbody tr:hover {
 }
 
 .btn-group {
+  margin-top: 0.8rem;
   display: flex;
   gap: 0.8rem;
 }

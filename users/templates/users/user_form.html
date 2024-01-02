@@ -1,7 +1,5 @@
 {% extends "school/_base.html" %} 
 
-{% load static %} 
-
 {% block details %}
 <div class="page-header">
   <div class="page-title">
@@ -17,13 +15,11 @@
         {% csrf_token %}
         <div class="form-group">{{form}}</div>
         <div class="btn-group">
-          <button type="submit" class="submit-btn">
-            {% if form.instance.pk %} 
-            Mettre a jour 
-            {% else %} 
-            Ajouter 
-            {% endif %}
-          </button>
+          {% if form.instance.pk %}
+          <button type="submit" class="submit-btn">Mettre a jour</button>
+          {% else %} 
+          <button type="submit" class="submit-btn">Ajouter</button> 
+          {% endif%}
           <a href="{% url 'users:list' %}" class="cancel-btn">Annuler</a>
         </div>
       </form>

@@ -7,7 +7,7 @@
     </a>
     <form method="post">
       {% csrf_token %}
-      <p>Êtes-vous sûr(e) de vouloir supprimer l'utilisateur "{{ object }}"?</p>
+      <p>Êtes-vous sûr(e) de vouloir supprimer l'utilisateur {{ object }}?</p>
       {{ form }}
       <div class="btn-group">
         <input class="submit-btn" type="submit" value="Confirmer" />

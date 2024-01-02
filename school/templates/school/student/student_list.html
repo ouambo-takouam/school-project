@@ -1,0 +1,54 @@
+{% extends "school/_base.html" %} 
+
+{% load static %} 
+
+{% block details %}
+<div class="page-header">
+  <div class="page-title">
+    <h4>Liste des eleves</h4>
+    <h6>Gérer vos eleves</h6>
+  </div>
+  <div class="page-btn">
+    <a href="{% url 'school:matiere_create' %}" class="submit-btn">Ajouter un eleve</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Date naissance</th>
+            <th>Sexe</th>
+            <th>Classe</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for object in object_list %}
+          <tr>
+            <th>{{object.first_name}}</th>
+            <th>{{object.birth_date}}</th>
+            <th>{{object.sex}}</th>
+            <th>{{object.classe}}</th>
+            <td>
+              <a href="{% url 'school:student_update' object.pk %}">
+                <img src="{% static '/school/images/edit.svg' %}" alt="edit" />
+              </a>
+              <a href="{% url 'school:student_delete' object.pk %}">
+                <img
+                  src="{% static '/school/images/delete.svg' %}"
+                  alt="edit"
+                />
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

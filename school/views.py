@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import FormView
 from django.views.generic import TemplateView
+from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from users.models import CustomUser, Profile
@@ -51,13 +52,23 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         context['students'] = Student.objects.filter(school=school)
         
         return context
+    
+
+class ClasseListView(LoginRequiredMixin, ListView):
+    model = Classe
+    template_name = 'school/classe/classe_list.html'
+
+    def get_queryset(self):
+        current_user = self.request.user
+        queryset = Classe.objects.filter(school=current_user.school)
+        return queryset
 
 
 class ClasseCreateView(LoginRequiredMixin, CreateView):
     model = Classe
     form_class = ClasseForm
-    template_name = 'school/classe/classe_create.html'
-    success_url = reverse_lazy('school:dashboard')
+    template_name = 'school/classe/classe_form.html'
+    success_url = reverse_lazy('school:classe_list')
 
     def form_valid(self, form):
         form.instance.school = self.request.user.school
@@ -67,20 +78,30 @@ class ClasseCreateView(LoginRequiredMixin, CreateView):
 class ClasseUpdateView(LoginRequiredMixin, UpdateView):
     model = Classe
     form_class = ClasseForm
-    template_name = 'school/classe/classe_update_form.html'
+    template_name = 'school/classe/classe_form.html'
 
 
 class ClasseDeleteView(LoginRequiredMixin, DeleteView):
     model = Classe
     template_name = 'school/classe/classe_confirm_delete.html'
-    success_url = reverse_lazy("school:dashboard")
+    success_url = reverse_lazy("school:classe_list")
 
+
+class MatiereListView(LoginRequiredMixin, ListView):
+    model = Matiere
+    template_name = 'school/matiere/matiere_list.html'
+
+    def get_queryset(self):
+        current_user = self.request.user
+        queryset = Matiere.objects.filter(school=current_user.school)
+        return queryset
+    
 
 class MatiereCreateView(LoginRequiredMixin, CreateView):
     model = Matiere
     form_class = MatiereForm
-    template_name = 'school/matiere/matiere_create.html'
-    success_url = reverse_lazy('school:dashboard')
+    template_name = 'school/matiere/matiere_form.html'
+    success_url = reverse_lazy('school:matiere_list')
 
     def form_valid(self, form):
         form.instance.school = self.request.user.school
@@ -90,20 +111,30 @@ class MatiereCreateView(LoginRequiredMixin, CreateView):
 class MatiereUpdateView(LoginRequiredMixin, UpdateView):
     model = Matiere
     form_class = MatiereForm
-    template_name = 'school/matiere/matiere_update_form.html'
+    template_name = 'school/matiere/matiere_form.html'
 
 
 class MatiereDeleteView(LoginRequiredMixin, DeleteView):
     model = Matiere
     template_name = 'school/matiere/matiere_confirm_delete.html'
-    success_url = reverse_lazy("school:dashboard")
+    success_url = reverse_lazy("school:matiere_list")
+
+
+class StudentListView(LoginRequiredMixin, ListView):
+    model = Student
+    template_name = 'school/student/student_list.html'
+
+    def get_queryset(self):
+        current_user = self.request.user
+        queryset = Student.objects.filter(school=current_user.school)
+        return queryset
 
 
 class StudentCreateView(LoginRequiredMixin, CreateView):
     model = Student
     form_class = StudentForm
-    template_name = 'school/student/student_create.html'
-    success_url = reverse_lazy('school:dashboard')
+    template_name = 'school/student/student_form.html'
+    success_url = reverse_lazy('school:student_list')
 
     def form_valid(self, form):
         form.instance.school = self.request.user.school
@@ -118,7 +149,7 @@ class StudentCreateView(LoginRequiredMixin, CreateView):
 class StudentUpdateView(LoginRequiredMixin, UpdateView):
     model = Student
     form_class = StudentForm
-    template_name = 'school/student/student_update_form.html'
+    template_name = 'school/student/student_form.html'
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -129,4 +160,4 @@ class StudentUpdateView(LoginRequiredMixin, UpdateView):
 class StudentDeleteView(LoginRequiredMixin, DeleteView):
     model = Student
     template_name = 'school/student/student_confirm_delete.html'
-    success_url = reverse_lazy("school:dashboard")
+    success_url = reverse_lazy("school:student_list")

@@ -1,9 +1,19 @@
-{% extends "school/_base.html" %}
-
-{% block details %}
-<form method="post">{% csrf_token %}
-    <p>Êtes-vous sûr(e) de vouloir supprimer la classe "{{ object }}"?</p>
-    {{ form }}
-    <input type="submit" value="Confirmer">
-</form>
+{% extends "school/_base.html" %} {% block details %}
+<div class="modal-wrapper">
+  <div class="modal">
+    <span class="material-symbols-outlined delete-icon"> delete </span>
+    <a href="{% url 'school:classe_list' %}">
+      <span class="material-symbols-outlined close-btn"> close </span>
+    </a>
+    <form method="post">
+      {% csrf_token %}
+      <p>Êtes-vous sûr(e) de vouloir supprimer la classe {{ object }}?</p>
+      {{ form }}
+      <div class="btn-group">
+        <input class="submit-btn" type="submit" value="Confirmer" />
+        <a href="{% url 'school:classe_list' %}" class="cancel-btn">Annuler</a>
+      </div>
+    </form>
+  </div>
+</div>
 {% endblock %}

@@ -1,9 +1,0 @@
-{% extends "school/_base.html" %}
-
-{% block details %}
-<form method='post'>
-    {% csrf_token %}
-    {{form}}
-    <button type='submit'>Ajouter</button>
-</form>
-{% endblock %}
