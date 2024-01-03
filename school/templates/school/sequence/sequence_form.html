@@ -1,0 +1,28 @@
+{% extends "school/_base.html" %}
+
+{% block details %}
+<div class="page-header">
+    <div class="page-title">
+      <h4>Gestion des sequences</h4>
+      <h6>Ajouter / Mettre à jour une sequence</h6>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group">{{form}}</div>
+          <div class="btn-group">
+            {% if form.instance.pk %}
+            <button type="submit" class="submit-btn">Mettre a jour</button>
+            {% else %} 
+            <button type="submit" class="submit-btn">Ajouter</button> 
+            {% endif%}
+            <a href="{% url 'school:sequence_list' %}" class="cancel-btn">Annuler</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

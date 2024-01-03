@@ -11,6 +11,10 @@ from .views import (
     MatiereCreateView,
     MatiereUpdateView,
     MatiereDeleteView,
+    SequenceListView,
+    SequenceCreateView,
+    SequenceUpdateView,
+    SequenceDeleteView,
     StudentListView,
     StudentCreateView,
     StudentUpdateView,
@@ -33,6 +37,11 @@ urlpatterns = [
     path('matieres/create/', MatiereCreateView.as_view(), name='matiere_create'),
     path('matieres/<int:pk>/update/', MatiereUpdateView.as_view(), name='matiere_update'),
     path('matieres/<int:pk>/delete/', MatiereDeleteView.as_view(), name='matiere_delete'),
+
+    path('sequences/list/', SequenceListView.as_view(), name='sequence_list'),
+    path('sequences/create/', SequenceCreateView.as_view(), name='sequence_create'),
+    path('sequences/<int:pk>/update/', SequenceUpdateView.as_view(), name='sequence_update'),
+    path('sequences/<int:pk>/delete/', SequenceDeleteView.as_view(), name='sequence_delete'),
 
     path('students/list/', StudentListView.as_view(), name='student_list'),
     path('students/create/', StudentCreateView.as_view(), name='student_create'),

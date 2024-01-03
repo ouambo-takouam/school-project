@@ -9,8 +9,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from users.models import CustomUser, Profile
 
-from .forms import SchoolForm, ClasseForm, MatiereForm, StudentForm
-from .models import School, Classe, Matiere, Student
+from .forms import SchoolForm, ClasseForm, MatiereForm, SequenceForm, StudentForm
+from .models import School, Classe, Matiere, Sequence, Student
 
 
 class SchoolCreateView(FormView):
@@ -42,16 +42,6 @@ class SchoolCreateView(FormView):
 
 class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'school/dashboard.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        school = self.request.user.school
-        
-        context['classes'] = Classe.objects.filter(school=school)
-        context['matieres'] = Matiere.objects.filter(school=school)
-        context['students'] = Student.objects.filter(school=school)
-        
-        return context
     
 
 class ClasseListView(LoginRequiredMixin, ListView):
@@ -118,6 +108,39 @@ class MatiereDeleteView(LoginRequiredMixin, DeleteView):
     model = Matiere
     template_name = 'school/matiere/matiere_confirm_delete.html'
     success_url = reverse_lazy("school:matiere_list")
+
+
+class SequenceListView(LoginRequiredMixin, ListView):
+    model = Sequence
+    template_name = 'school/sequence/sequence_list.html'
+
+    def get_queryset(self):
+        current_user = self.request.user
+        queryset = Sequence.objects.filter(school=current_user.school)
+        return queryset
+    
+
+class SequenceCreateView(LoginRequiredMixin, CreateView):
+    model = Sequence
+    form_class = SequenceForm
+    template_name = 'school/sequence/sequence_form.html'
+    success_url = reverse_lazy('school:sequence_list')
+
+    def form_valid(self, form):
+        form.instance.school = self.request.user.school
+        return super().form_valid(form)
+
+
+class SequenceUpdateView(LoginRequiredMixin, UpdateView):
+    model = Sequence
+    form_class = SequenceForm
+    template_name = 'school/sequence/sequence_form.html'
+
+
+class SequenceDeleteView(LoginRequiredMixin, DeleteView):
+    model = Sequence
+    template_name = 'school/sequence/sequence_confirm_delete.html'
+    success_url = reverse_lazy("school:sequence_list")
 
 
 class StudentListView(LoginRequiredMixin, ListView):

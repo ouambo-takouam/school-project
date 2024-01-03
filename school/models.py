@@ -36,6 +36,17 @@ class Matiere(models.Model):
     
     def get_absolute_url(self):
         return reverse("school:matiere_list")
+    
+
+class Sequence(models.Model):
+    label = models.CharField(max_length=20, unique=True)
+    school = models.ForeignKey(School, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.label
+    
+    def get_absolute_url(self):
+        return reverse("school:sequence_list")
 
 
 class Student(models.Model):

@@ -80,5 +80,5 @@ class UserListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         current_user = self.request.user
-        queryset = CustomUser.objects.filter(school=current_user.school)
+        queryset = CustomUser.objects.filter(school=current_user.school).exclude(id=current_user.id)
         return queryset

@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 
-from .models import School, Classe, Matiere, Student
+from .models import School, Classe, Matiere, Sequence, Student
 
 class SchoolForm(forms.ModelForm):
     name = forms.CharField(max_length=100)
@@ -50,6 +50,16 @@ class MatiereForm(ModelForm): #SubjectForm
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['label'].label = 'Nom de la matiere'
+
+
+class SequenceForm(ModelForm):
+    class Meta:
+        model = Sequence
+        fields = ['label']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['label'].label = 'Nom de la sequence'
     
 
 class StudentForm(ModelForm):
@@ -66,3 +76,4 @@ class StudentForm(ModelForm):
         if user and user.is_authenticated:
             # Filtrer le champ 'classe' pour n'afficher que les classes de l'utilisateur connecté
             self.fields['classe'].queryset = Classe.objects.filter(school=user.school)
+

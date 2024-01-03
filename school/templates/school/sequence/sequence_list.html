@@ -1,15 +1,11 @@
-{% extends "school/_base.html" %} 
-
-{% load static %} 
-
-{% block details %}
+{% extends "school/_base.html" %} {% load static %} {% block details %}
 <div class="page-header">
   <div class="page-title">
-    <h4>Liste des eleves</h4>
-    <h6>Gérer vos eleves</h6>
+    <h4>Liste des sequences</h4>
+    <h6>Gérer vos sequences</h6>
   </div>
   <div class="page-btn">
-    <a href="{% url 'school:student_create' %}" class="submit-btn">Ajouter un eleve</a>
+    <a href="{% url 'school:sequence_create' %}" class="submit-btn">Ajouter une sequence</a>
   </div>
 </div>
 
@@ -19,25 +15,19 @@
       <table>
         <thead>
           <tr>
-            <th>Nom</th>
-            <th>Date naissance</th>
-            <th>Sexe</th>
-            <th>Classe</th>
+            <th>Label</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {% for object in object_list %}
           <tr>
-            <th>{{object.first_name}}</th>
-            <th>{{object.birth_date}}</th>
-            <th>{{object.sex}}</th>
-            <th>{{object.classe}}</th>
+            <th>{{object.label}}</th>
             <td>
-              <a href="{% url 'school:student_update' object.pk %}">
+              <a href="{% url 'school:sequence_update' object.pk %}">
                 <img src="{% static '/school/images/edit.svg' %}" alt="edit" />
               </a>
-              <a href="{% url 'school:student_delete' object.pk %}">
+              <a href="{% url 'school:sequence_delete' object.pk %}">
                 <img
                   src="{% static '/school/images/delete.svg' %}"
                   alt="edit"
